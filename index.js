@@ -121,9 +121,14 @@ function writeWeightData(auth) {
   var d = new Date();
   d.setHours(0, 0, 0, 0);
   var epochtime = d.getTime() / 1000;
+  // Provide a generic, common user agent.
+  var useragent = 'Dalvik/2.1.0 (Linux; U; Android 5.0; Nexus 5 Build/LPX13D)';
 
   const options = {
     method: "GET",
+    headers: {
+      'User-Agent': useragent,
+    },
     uri: "http://intdata.iyunmai.com/api/android/scale/list.json",
     qs: {
       code: code,
